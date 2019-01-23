@@ -112,6 +112,8 @@ public class main {
 							if (sumajugador > 21) {
 								System.out.println("Lo siento te has pasado");
 								System.out.println("La BANCA GANA Tu pierdes");
+								System.out.println();
+								System.out.println();
 								break;
 								
 							}
