@@ -10,6 +10,7 @@ public class Main {
 		char afi = 's';
 		Cartas pieza = new Cartas();
 
+		
 		do {
 			System.out.println("           ¿¿¿Quieres Jugar???");
 			System.out.println();
