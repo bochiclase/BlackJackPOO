@@ -7,14 +7,18 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		char contestacion;
+		int dinero;
 		char afi = 's';
+		int apuesta = 100;
 		Cartas pieza = new Cartas();
 
+		
 		
 		do {
 			System.out.println("           ¿¿¿Quieres Jugar???");
 			System.out.println();
 			System.out.println("                 Pulsa S");
+			System.out.println("           Empiezas con " +  apuesta + "€");
 			contestacion = sc.next().charAt(0);
 			
 			
@@ -32,6 +36,8 @@ public class Main {
 				int pesojugador;
 				int preciojugador;
 				String cartajugador;
+				System.out.println("¿Cuanto quieres apostar?");
+				dinero = sc.nextInt();
 				System.out.println();
 				System.out.println();
 				System.out.println();
@@ -73,7 +79,10 @@ public class Main {
 
 				if (sumajugador == 21) {
 					System.out.println("HAS GANADO, QUE SUERTE TIENES BLACKJACK EN LA PRIMERA MANO");
-					;
+					apuesta  += (dinero * 2);
+					System.out.println("Tu bote es " + dinero + "€");
+					
+					
 				} else {
 					
 					
@@ -116,7 +125,9 @@ public class Main {
 								System.out.println("La BANCA GANA Tu pierdes");
 								System.out.println();
 								System.out.println();
-								break;
+								apuesta -= dinero;
+								System.out.println("Tu bote es de  " + dinero);
+								
 								
 							}
 
@@ -152,12 +163,17 @@ public class Main {
 							System.out.println();
 							System.out.println();
 
+							
+							
+							
+							
 							if (sumacrupier == sumajugador) {
 
 								System.out.println("EMPATES");
 								System.out.println();
 								System.out.println();
-								break;
+								System.out.println("Tu bote es de  " + apuesta);
+								
 							}
 
 							if (sumacrupier < sumajugador && sumajugador < 22 || sumacrupier > 21
@@ -165,26 +181,34 @@ public class Main {
 								System.out.println("ENORABUENA HAS GANADO");
 								System.out.println();
 								System.out.println();
-								break;
+								apuesta += dinero;
+								System.out.println("Tu bote es de" + apuesta);
+								
 							}
 
 							if (sumacrupier > sumajugador && sumacrupier < 22 || sumacrupier == 21) {
 								System.out.println("Lo siento has perdido, la BANCA GANA");
 								System.out.println();
 								System.out.println();
-								break;
+								apuesta -= dinero;
+								System.out.println("Tu bote es de  " + apuesta);
+								
 							}
 
-						}
+						
 						if (sumajugador == 21) {
 
 							System.out.println("TIENES BLACKJACK");
 							System.out.println();
 							System.out.println();
-							break;
+							apuesta +=(dinero*2);
+							System.out.println("Tu bote es " + apuesta);
+						
 						}
-
-					} while (Character.toLowerCase(letra) != si || Character.toLowerCase(letra) != no);
+						}
+						System.out.println(sumajugador);
+						
+					} while (sumajugador <= 21 || Character.toLowerCase(letra) == si || sumajugador <= 21 || Character.toLowerCase(letra) != no);
 
 				}
 			}
